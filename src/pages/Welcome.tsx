@@ -8,15 +8,19 @@ import {
   Dimensions,
   View
 } from 'react-native';
-import { Entypo } from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 
 import wateringImg from '../assets/watering.png';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
+export function Welcome({ navigation }: any){
 
-export function Welcome(){
+  function handleStart() {
+    navigation.navigate('UserIdentification')
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
@@ -41,8 +45,9 @@ export function Welcome(){
         <TouchableOpacity
           style={styles.button}
           activeOpacity={0.6}
+          onPress={handleStart}
         >
-          <Entypo 
+          <Feather 
             name="chevron-right"
             style={styles.buttonIcon}
           />
@@ -65,22 +70,22 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
+    lineHeight: 34,
+    fontFamily: fonts.heading,
     fontWeight: 'bold',
     textAlign: 'center',
     color: colors.heading,
-    marginTop: 38,
-    fontFamily: fonts.heading,
-    lineHeight: 34
+    marginTop: 38
   },
   image: {
     height: Dimensions.get('window').width * 0.7
   },
   subtitle: {
-    textAlign: 'center',
     fontSize: 18,
-    paddingHorizontal: 20,
+    fontFamily: fonts.text,
     color: colors.body_dark,
-    fontFamily: fonts.text
+    textAlign: 'center',
+    paddingHorizontal: 20
   },
   button: {
     backgroundColor: colors.green,
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
     width: 56
   },
   buttonIcon: {
-    color: colors.white,
-    fontSize: 32
+    fontSize: 32,
+    color: colors.white
   }
 });
