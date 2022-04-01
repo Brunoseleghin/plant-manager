@@ -1,5 +1,10 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, TouchableOpacityProps } from 'react-native'
+import { 
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  TouchableOpacityProps
+} from 'react-native'
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
@@ -31,7 +36,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.white,
-    fontSize: 16,
+    fontSize: 17,
     fontFamily: fonts.heading
   }
 })
