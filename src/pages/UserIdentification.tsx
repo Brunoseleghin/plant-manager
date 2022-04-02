@@ -37,7 +37,7 @@ export function UserIdentification({ navigation }: any){
   }
 
   function handleSubmit(){
-    navigation.navigate('Confirmation');
+    navigation.navigate('AddPhoto');
   }
 
   return(

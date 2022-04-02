@@ -10,7 +10,12 @@ import { Button } from '../components/Button';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
-export function Confirmation(){
+export function Confirmation({ navigation }: any){
+
+  function handleStart() {
+    //navigation.navigate('')
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -28,7 +33,10 @@ export function Confirmation(){
         </Text>
 
         <View style={styles.footer}>
-          <Button title='Começar'/>
+          <Button 
+            title='Começar'
+            onPress={handleStart}
+          />
         </View>
         
       </View>
