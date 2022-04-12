@@ -11,7 +11,8 @@ import {
 import { Feather } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 
-import wateringImg from '../assets/watering.png';
+import { WelcomeAnimation } from '../components/WelcomeAnimation';
+
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
@@ -30,11 +31,10 @@ export function Welcome({ navigation }: any){
           forma fácil
         </Text>
 
-        <Image
-          source={wateringImg}
-          style={styles.image}
-          resizeMode="contain"
-        />
+        <View style={styles.image}>
+          <WelcomeAnimation />
+        </View>
+        
 
         <Text style={styles.subtitle}>
             Não esqueça mais de regar suas {'\n'}
