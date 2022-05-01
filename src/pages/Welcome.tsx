@@ -2,7 +2,6 @@ import React from 'react';
 import {
   SafeAreaView,
   Text,
-  Image,
   StyleSheet,
   TouchableOpacity,
   Dimensions,
@@ -11,7 +10,8 @@ import {
 import { Feather } from '@expo/vector-icons'
 import { StatusBar } from 'expo-status-bar';
 
-import { WelcomeAnimation } from '../components/WelcomeAnimation';
+import { Animation } from '../components/Animation';
+import wateringPlants from '../assets/watering-plants.json';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -32,7 +32,7 @@ export function Welcome({ navigation }: any){
         </Text>
 
         <View style={styles.image}>
-          <WelcomeAnimation />
+          <Animation loadAnimation={wateringPlants}/>
         </View>
         
 
@@ -66,13 +66,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
-    paddingHorizontal: 20
+    //paddingHorizontal: 20
   },
   title: {
     fontSize: 28,
     lineHeight: 34,
     fontFamily: fonts.heading,
-    fontWeight: 'bold',
+    //fontWeight: 'bold',
     textAlign: 'center',
     color: colors.heading,
     marginTop: 38
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     fontFamily: fonts.text,
     color: colors.body_dark,
     textAlign: 'center',
-    paddingHorizontal: 20
+    //paddingHorizontal: 20
   },
   button: {
     backgroundColor: colors.green,

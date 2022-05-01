@@ -8,9 +8,12 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Platform,
-  Keyboard
+  Keyboard,
+  Alert
 } from 'react-native'
 import { StatusBar } from 'expo-status-bar';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -36,7 +39,11 @@ export function UserIdentification({ navigation }: any){
     setName(value);
   }
 
-  function handleSubmit(){
+  async function handleSubmit(){
+    if(!name)
+      return Alert.alert('Me diz como chamar você. 😢');
+
+    await AsyncStorage.setItem("@plantmanager:user_name", name);
     navigation.navigate('AddPhoto');
   }
 
@@ -46,9 +53,7 @@ export function UserIdentification({ navigation }: any){
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <TouchableWithoutFeedback 
-          onPress={Keyboard.dismiss}
-        >
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
           <View style={styles.content}>
             <View style={styles.form}>
               <View style={styles.header}>

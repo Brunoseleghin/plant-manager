@@ -1,12 +1,18 @@
 import React from 'react';
 import { 
+  Dimensions,
   SafeAreaView,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+
 import { Button } from '../components/Button';
+import { Animation } from '../components/Animation';
+
+import selfie from '../assets/selfie.json';
+
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
@@ -30,19 +36,23 @@ export function AddPhoto({ navigation }: any){
   }
 
   function handleAddPhoto(){
+
+
     navigation.navigate('Confirmation');
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
+
         <Text style={styles.title}>
-        Que tal adicionar uma foto para seu usuário?
+          Adicione uma foto {'\n'}
+          ao seu usuário!
         </Text>
 
-        <Text style={styles.emoji}>
-          😎🤳
-        </Text>
+        <View style={styles.image}>
+          <Animation loadAnimation={selfie}/>
+        </View>
 
         <View style={styles.footer}>
           <View style={styles.addPhoto}>
@@ -78,16 +88,15 @@ const styles = StyleSheet.create({
     padding: 30
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontFamily: fonts.heading,
     color: colors.heading,
     textAlign: 'center',
-    marginBottom: 40
+    marginBottom: 20
   },
-  emoji: {
-    fontSize: 84,
-    textAlign: 'center',
-    marginBottom: 40
+  image: {
+    height: Dimensions.get('window').width * 0.7,
+    marginBottom: 20
   },
   footer: {
     flexDirection: 'row',
